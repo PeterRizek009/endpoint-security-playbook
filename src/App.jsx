@@ -1287,7 +1287,7 @@ export default function App() {
         <header className="mb-6">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <h1 className="text-2xl font-black text-gray-900">Attack Response Playbook</h1>
+              <h1 className="text-2xl font-black text-gray-900">Attacks Response Cheatsheet</h1>
               <p className="mt-1 text-sm text-gray-600">
                 Click an attack → follow the step-by-step checklist (next step unlocks only after you
                 complete the previous).
