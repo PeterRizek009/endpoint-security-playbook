@@ -1272,7 +1272,7 @@ function AttackCard({ attack, openId, setOpenId, progress, setProgress }) {
 }
 
 function PlaybooksTab() {
-  const [openId, setOpenId] = useState(playbooks?.[0]?.id ?? null);
+const [openId, setOpenId] = useState(null);
   const [query, setQuery] = useState("");
 
   const initialProgress = useMemo(() => {
