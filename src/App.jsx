@@ -1628,6 +1628,65 @@ function TopBar({ tab, setTab }) {
   );
 }
 
+
+function AttackCard({ attack, openId, setOpenId, progress, setProgress }) {
+  const isOpen = openId === attack.id;
+  const sectionStates = progress[attack.id];
+
+  return (
+    <div className="rounded-2xl border bg-white shadow-sm overflow-hidden">
+
+      {/* Attack Header */}
+      <button
+        onClick={() => setOpenId(isOpen ? null : attack.id)}
+        className="w-full text-left p-5 flex items-start justify-between hover:bg-gray-50 transition"
+      >
+        <div>
+          <div className="text-lg font-extrabold text-gray-900">
+            {attack.title}
+          </div>
+
+          <div className="mt-1 text-sm text-gray-600">
+            {attack.subtitle}
+          </div>
+        </div>
+
+        <span
+          className={clsx(
+            "transition-transform duration-200 font-bold",
+            isOpen && "rotate-180"
+          )}
+        >
+          ▼
+        </span>
+      </button>
+
+      {/* Sections */}
+      {isOpen && (
+        <div className="px-4 pb-4 space-y-4">
+          {attack.sections.map((sec) => (
+            <Section
+              key={sec.key}
+              section={sec}
+              state={sectionStates[sec.key]}
+              setState={(nextArr) => {
+                setProgress((prev) => ({
+                  ...prev,
+                  [attack.id]: {
+                    ...prev[attack.id],
+                    [sec.key]: nextArr,
+                  },
+                }));
+              }}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+
 export default function App() {
   const [tab, setTab] = useState("playbooks");
 
