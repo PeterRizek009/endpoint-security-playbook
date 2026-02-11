@@ -1217,59 +1217,42 @@ function ProgressChecklist({ steps, value, onChange }) {
 }
 
 function Section({ section, state, setState }) {
-  return (
-    <div className="rounded-2xl border bg-gray-50 p-4">
-      <div className="mb-3 text-base font-bold text-gray-900">{section.title}</div>
-      <ProgressChecklist steps={section.steps} value={state} onChange={setState} />
-    </div>
-  );
-}
-
-function AttackCard({ attack, openId, setOpenId, progress, setProgress }) {
-  const isOpen = openId === attack.id;
-  const sectionStates = progress[attack.id];
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="rounded-2xl border bg-white shadow-sm">
+    <div className="rounded-2xl border bg-gray-50 overflow-hidden">
+      
+      {/* Header */}
       <button
-        onClick={() => setOpenId(isOpen ? null : attack.id)}
-        className={clsx(
-          "w-full text-left p-4 flex items-start justify-between gap-4",
-          "hover:bg-gray-50 rounded-2xl"
-        )}
+        onClick={() => setOpen(!open)}
+        className="w-full px-5 py-4 flex justify-between items-center text-left font-bold text-gray-900 hover:bg-gray-100 transition"
       >
-        <div>
-          <div className="text-lg font-extrabold text-gray-900">{attack.title}</div>
-          <div className="mt-1 text-sm text-gray-600">{attack.subtitle}</div>
-        </div>
-        <div className="text-sm font-semibold text-gray-500">{isOpen ? "▲" : "▼"}</div>
+        {section.title}
+
+        <span
+          className={clsx(
+            "transition-transform duration-200",
+            open && "rotate-180"
+          )}
+        >
+          ▼
+        </span>
       </button>
 
-      {isOpen && (
-        <div className="px-4 pb-4">
-          <div className="grid gap-4 md:grid-cols-3">
-            {attack.sections.map((sec) => (
-              <Section
-                key={sec.key}
-                section={sec}
-                state={sectionStates[sec.key]}
-                setState={(nextArr) => {
-                  setProgress((prev) => ({
-                    ...prev,
-                    [attack.id]: {
-                      ...prev[attack.id],
-                      [sec.key]: nextArr,
-                    },
-                  }));
-                }}
-              />
-            ))}
-          </div>
+      {/* Body */}
+      {open && (
+        <div className="p-4 border-t">
+          <ProgressChecklist
+            steps={section.steps}
+            value={state}
+            onChange={setState}
+          />
         </div>
       )}
     </div>
   );
 }
+
 
 function PlaybooksTab() {
 const [openId, setOpenId] = useState(null);
