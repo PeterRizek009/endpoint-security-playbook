@@ -1,3 +1,6 @@
+import React, { useMemo, useState } from "react";
+
+
 export const playbooks = [
   {
     id: "phishing",
@@ -1128,7 +1131,7 @@ export const playbooks = [
 ];
 
 
-export function MDETab() {
+export default function MDETab() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 space-y-6">
       <div>
