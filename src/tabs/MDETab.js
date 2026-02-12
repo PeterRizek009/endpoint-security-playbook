@@ -1,7 +1,8 @@
 
 
 import { playbooks } from "../data/playbooks";
-import {Card }  from "../Cards/Card";
+import Card from "../Cards/Card";
+
 
 
 export default function MDETab() {
