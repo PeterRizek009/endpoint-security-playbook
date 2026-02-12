@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
-import Section from "../Section"; 
-// ⚠️ لو Section موجود في نفس الملف القديم
+
+import Section from "../Cards/Section";
 // الأفضل تطلعه في ملف لوحده بعدين.
 
 export default function AndroidTab() {
