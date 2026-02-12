@@ -1128,7 +1128,7 @@ export const playbooks = [
 ];
 
 
-function MDETab() {
+export function MDETab() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 space-y-6">
       <div>
