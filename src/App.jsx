@@ -1589,6 +1589,7 @@ function TopBar({ tab, setTab }) {
   const tabs = [
     { id: "playbooks", label: "Attack Response using MDE" },
     { id: "windows-update", label: "Windows Update" },
+     { id: "android", label: "Android" },
     { id: "mde", label: "MDE" },
   ];
 
