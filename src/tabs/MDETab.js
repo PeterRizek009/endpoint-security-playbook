@@ -1125,7 +1125,7 @@ const playbooks = [
       },
     ],
   },
-];;
+];
 
 
 function MDETab() {
