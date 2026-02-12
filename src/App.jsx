@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import AndroidTab from "./tabs/AndroidTab";
 import MDETab from "./tabs/MDETab";
+import { playbooks } from "./data/playbooks";
 
 /**
  * Single-file React app (Tailwind)
