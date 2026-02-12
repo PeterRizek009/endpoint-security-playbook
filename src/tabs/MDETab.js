@@ -1,4 +1,4 @@
-const playbooks = [
+export const playbooks = [
   {
     id: "phishing",
     title: "Phishing",
