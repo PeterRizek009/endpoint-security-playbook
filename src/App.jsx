@@ -1698,6 +1698,7 @@ export default function App() {
 
       {tab === "playbooks" && <PlaybooksTab />}
       {tab === "windows-update" && <WindowsUpdateTab />}
+      {tab === "android" && <AndroidTab />}
       {tab === "mde" && <MDETab />}
     </div>
   );
